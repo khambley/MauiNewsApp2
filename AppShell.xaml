@@ -3,14 +3,37 @@
     x:Class="MauiNewsApp2.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:MauiNewsApp2"
-    Shell.FlyoutBehavior="Disabled"
-    Title="MauiNewsApp2">
+    xmlns:local="clr-namespace:MauiNewsApp2">
 
-    <ShellContent
+    <!-- FlyoutItems can have multiple child elements -->
+    <FlyoutItem Title="Home" Icon="{StaticResource HomeIcon}">
+
+        <!-- These two child elements define the bottom tab bar -->
+        <ShellContent Title="Headlines" Icon="{StaticResource HeadlinesIcon}">
+            <ContentPage Title="Headlines" />
+        </ShellContent>
+
+        <Tab Title="News" Icon="{StaticResource NewsIcon}">
+            <!-- These two child elements define the top navigation bar under the title -->
+            <ContentPage Title="Local" />
+            <ContentPage Title="Global" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Settings" Icon="{StaticResource SettingsIcon}">
+
+
+    </FlyoutItem>
+
+    <!-- ShellContent items can have only one child element -->
+    <ShellContent Title="About" Icon="{StaticResource AboutIcon}">
+        <ContentPage Title="About" /> 
+    </ShellContent>
+
+    <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" />-->
 
 </Shell>
 
