@@ -28,5 +28,9 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
+	<key>CFBundleDisplayName</key>
+	<string> MyMauiNews</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.superdesigngirl.mymauinews</string>
 </dict>
 </plist>

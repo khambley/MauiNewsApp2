@@ -21,10 +21,10 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>MauiNewsApp2</ApplicationTitle>
+		<ApplicationTitle>MyMauiNews</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.mauinewsapp2</ApplicationId>
+		<ApplicationId>com.superdesigngirl.mymauinews</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -71,11 +71,13 @@
 	  <None Remove="Pages\" />
 	  <None Remove="Controls\" />
 	  <None Remove="Resources\Fonts\FontAwesome6Pro-Solid-900.otf" />
+	  <None Remove="Models\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="ViewModels\" />
 	  <Folder Include="Pages\" />
 	  <Folder Include="Controls\" />
+	  <Folder Include="Models\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="Resources\Fonts\FontAwesome6Pro-Solid-900.otf" />
