@@ -22,6 +22,8 @@ namespace MauiNewsApp2.Services
 
         private static string Global => $"{UriBase}/everything?q=global&apiKey={AppSettings.NewsApiKey}";
 
+        private static string DotnetMaui => $"{UriBase}/everything?q=.NET%20Maui&apiKey={AppSettings.NewsApiKey}";
+
         public NewsService()
 		{
 
@@ -51,6 +53,7 @@ namespace MauiNewsApp2.Services
             NewsScope.Headlines => Headlines,
             NewsScope.Global => Global,
             NewsScope.Local => Local,
+            NewsScope.DotnetMaui => DotnetMaui,
             _ => throw new Exception("Undefined scope")
         };
         protected virtual void Dispose(bool disposing)

@@ -5,7 +5,8 @@ namespace MauiNewsApp2.Services
 	{
         Headlines,
         Local,
-        Global
+        Global,
+        DotnetMaui
     }
 }
 

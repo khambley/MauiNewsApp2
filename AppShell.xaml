@@ -17,6 +17,7 @@
             <!-- These two child elements define the top navigation bar under the title -->
             <ContentPage Title="Local" />
             <ContentPage Title="Global" />
+            <ContentPage Title=".NET MAUI" />
         </Tab>
     </FlyoutItem>
 
