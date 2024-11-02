@@ -5,9 +5,10 @@ namespace MauiNewsApp2.ViewModels
 {
     public abstract partial class ViewModelBase : ObservableObject
     {
-		public ViewModelBase()
-		{
-		}
+		public INavigate Navigation { get; init; }
+
+		internal ViewModelBase(INavigate navigation) => Navigation = navigation;
+		
 	}
 }
 

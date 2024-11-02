@@ -14,7 +14,7 @@ namespace MauiNewsApp2.ViewModels
         [ObservableProperty]
         private NewsResult currentNews;
 
-        public HeadlinesViewModel(INewsService newsService)
+        public HeadlinesViewModel(INewsService newsService, INavigate navigation) : base (navigation)
         {
             this.newsService = newsService;
         }
