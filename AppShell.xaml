@@ -9,25 +9,38 @@
     <FlyoutItem Title="Home" Icon="{StaticResource HomeIcon}">
 
         <!-- These two child elements define the bottom tab bar -->
-        <ShellContent Title="Headlines" Icon="{StaticResource HeadlinesIcon}">
-            <ContentPage Title="Headlines" />
-        </ShellContent>
+        <ShellContent Title="Headlines"
+                      Route="headlines"
+                      Icon="{StaticResource HeadlinesIcon}"
+                      ContentTemplate="{DataTemplate views:HeadlinesPage}" />
 
-        <Tab Title="News" Icon="{StaticResource NewsIcon}">
+        <Tab Title="News"
+             Route="news"
+             Icon="{StaticResource NewsIcon}">
             <!-- These two child elements define the top navigation bar under the title -->
-            <ContentPage Title="Local" />
-            <ContentPage Title="Global" />
-            <ContentPage Title=".NET MAUI" />
+            <ShellContent Title="Local"
+                          Route="local"
+                          ContentTemplate="{DataTemplate views:HeadlinesPage}" />
+
+            <ShellContent Title="Global"
+                          Route="global"
+                          ContentTemplate="{DataTemplate views:HeadlinesPage}" />
+
+            <ShellContent Title=".NET Maui"
+                          Route="dotnetmaui"
+                          ContentTemplate="{DataTemplate views:HeadlinesPage}" />
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Settings" Icon="{StaticResource SettingsIcon}">
-
+    <FlyoutItem Title="Settings"
+                Icon="{StaticResource SettingsIcon}">
+            <ContentPage Title="Settings" />
 
     </FlyoutItem>
 
     <!-- ShellContent items can have only one child element -->
-    <ShellContent Title="About" Icon="{StaticResource AboutIcon}">
+    <ShellContent Title="About"
+                  Icon="{StaticResource AboutIcon}">
         <ContentPage Title="About" /> 
     </ShellContent>
 
