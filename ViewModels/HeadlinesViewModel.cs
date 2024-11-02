@@ -34,11 +34,11 @@ namespace MauiNewsApp2.ViewModels
         }
 
         [RelayCommand]
-        public void ItemSelected(object selectedItem)
+        public async Task ItemSelected(object selectedItem)
         {
             var selectedArticle = selectedItem as Article;
-            var url = HttpUtility.UrlEncode(selectedArticle.Url);
-            // Placeholder for more code later on
+            var url = HttpUtility.UrlEncode(selectedArticle?.Url);
+            await Navigation.NavigateTo($"articleview?url={url}");
         }
     }
 }
