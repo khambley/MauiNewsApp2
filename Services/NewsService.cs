@@ -46,6 +46,8 @@ namespace MauiNewsApp2.Services
                     Articles = new() { new() { Title = $"HTTP Get failed: {ex.Message}", PublishedAt = DateTime.Now } }
                 };
             }
+            var orderedArticles = result.Articles.OrderByDescending(x => x.PublishedAt).ToList();
+            result.Articles = orderedArticles;
             return result;
         }
         private string GetUrl(NewsScope scope) => scope switch

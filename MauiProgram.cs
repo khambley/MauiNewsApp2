@@ -35,7 +35,9 @@ public static class MauiProgram
 		mauiAppBuilder.Services.AddTransient<Pages.AboutPage>();
 		mauiAppBuilder.Services.AddTransient<Pages.ArticlePage>();
 		mauiAppBuilder.Services.AddTransient<Pages.HeadlinesPage>();
-		return mauiAppBuilder;
+        mauiAppBuilder.Services.AddTransient<Pages.LocalNewsPage>();
+        mauiAppBuilder.Services.AddTransient<Pages.GlobalNewsPage>();
+        return mauiAppBuilder;
 	}
 }
 

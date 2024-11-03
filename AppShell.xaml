@@ -20,17 +20,17 @@
              Route="news"
              Icon="{StaticResource NewsIcon}">
             <!-- These two child elements define the top navigation bar under the title -->
-            <ShellContent Title="Local"
-                          Route="local"
-                          ContentTemplate="{DataTemplate views:HeadlinesPage}" />
-
-            <ShellContent Title="Global"
-                          Route="global"
-                          ContentTemplate="{DataTemplate views:HeadlinesPage}" />
-
             <ShellContent Title=".NET Maui"
                           Route="dotnetmaui"
                           ContentTemplate="{DataTemplate views:HeadlinesPage}" />
+                
+            <ShellContent Title="Local"
+                          ContentTemplate="{DataTemplate views:LocalNewsPage}" />
+
+            <ShellContent Title="Global"
+                          ContentTemplate="{DataTemplate views:GlobalNewsPage}" />
+
+            
         </Tab>
     </FlyoutItem>
 

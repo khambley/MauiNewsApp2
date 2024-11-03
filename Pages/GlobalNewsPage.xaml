@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MauiNewsApp2.Controls"
+             xmlns:viewModels="clr-namespace:MauiNewsApp2.ViewModels"
+             xmlns:models="clr-namespace:MauiNewsApp2.Models"
+             x:Name="globalnewspage"
+             x:Class="MauiNewsApp2.Pages.GlobalNewsPage"
+             Title="Global News"
+             Padding="14">
+
+    <CollectionView ItemsSource="{Binding CurrentNews.Articles}">
+        <CollectionView.EmptyView>
+            <Label Text="Loading" />
+        </CollectionView.EmptyView>
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:Article">
+                <ContentView>
+                    <ContentView.GestureRecognizers>
+
+                        <TapGestureRecognizer Command="{Binding BindingContext.ItemSelectedCommand, Source={x:Reference globalnewspage}}"
+                                              CommandParameter="{Binding .}" />
+
+                    </ContentView.GestureRecognizers>
+
+                    <controls:ArticleItem />
+
+                </ContentView>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
