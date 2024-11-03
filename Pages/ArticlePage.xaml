@@ -3,5 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiNewsApp2.Pages.ArticlePage"
              Title="Article Page">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="{StaticResource ShareIcon}"
+                     Clicked="ShareButton_Clicked"/>
+
+    </ContentPage.ToolbarItems>
     <WebView Source="{Binding .}" />
 </ContentPage>

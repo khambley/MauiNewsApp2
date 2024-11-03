@@ -38,6 +38,11 @@
                        Glyph="&#xf05a;"
                        Size="22"
                        Color="Black" />
+            <FontImage x:Key="ShareIcon"
+                       FontFamily="FontAwesome"
+                       Glyph="&#xf14d;"
+                       Size="22"
+                       Color="Black" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
