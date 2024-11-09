@@ -28,6 +28,8 @@ namespace MauiNewsApp2.Models
 
         [JsonPropertyName("content")]
         public string Content { get; set; }
+
+        public bool IsFavorite { get; set; }
     }
 }
 

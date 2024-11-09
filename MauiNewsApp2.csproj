@@ -73,6 +73,8 @@
 	  <None Remove="Resources\Fonts\FontAwesome6Pro-Solid-900.otf" />
 	  <None Remove="Models\" />
 	  <None Remove="Services\" />
+	  <None Remove="Resources\Images\heart_filled.svg" />
+	  <None Remove="Resources\Images\heart_outline.svg" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="ViewModels\" />

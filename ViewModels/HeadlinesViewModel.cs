@@ -14,6 +14,11 @@ namespace MauiNewsApp2.ViewModels
         [ObservableProperty]
         private NewsResult currentNews;
 
+        [ObservableProperty]
+        private bool isFavorite;
+
+        public string FavoriteIcon => IsFavorite ? "heart_filled.svg" : "heart_outline.svg";
+
         public HeadlinesViewModel(INewsService newsService, INavigate navigation) : base (navigation)
         {
             this.newsService = newsService;
