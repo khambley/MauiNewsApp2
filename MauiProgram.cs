@@ -30,13 +30,15 @@ public static class MauiProgram
 
 		//ViewModels
 		mauiAppBuilder.Services.AddTransient<ViewModels.HeadlinesViewModel>();
+        mauiAppBuilder.Services.AddTransient<ViewModels.SearchViewModel>();
 
-		//Pages
-		mauiAppBuilder.Services.AddTransient<Pages.AboutPage>();
+        //Pages
+        mauiAppBuilder.Services.AddTransient<Pages.AboutPage>();
 		mauiAppBuilder.Services.AddTransient<Pages.ArticlePage>();
 		mauiAppBuilder.Services.AddTransient<Pages.HeadlinesPage>();
         mauiAppBuilder.Services.AddTransient<Pages.LocalNewsPage>();
         mauiAppBuilder.Services.AddTransient<Pages.GlobalNewsPage>();
+        mauiAppBuilder.Services.AddTransient<Pages.SearchPage>();
         return mauiAppBuilder;
 	}
 }

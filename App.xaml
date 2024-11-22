@@ -27,6 +27,12 @@
                        Color="Gray"
                        Size="22" />
 
+            <FontImage x:Key="SearchIcon"
+                       FontFamily="FontAwesome"
+                       Glyph="&#xf002;"
+                       Color="Gray"
+                       Size="22" />
+
             <FontImage x:Key="SettingsIcon"
                        FontFamily="FontAwesome"
                        Glyph="&#xf013;"

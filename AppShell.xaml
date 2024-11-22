@@ -29,9 +29,15 @@
 
             <ShellContent Title="Global"
                           ContentTemplate="{DataTemplate views:GlobalNewsPage}" />
-
-            
+           
         </Tab>
+        <Tab Title="Search"
+             Route="search"
+             Icon="{StaticResource SearchIcon}">
+            <ShellContent Title="Search"
+                          Route="search"
+                          ContentTemplate="{DataTemplate views:SearchPage}" />
+            </Tab>
     </FlyoutItem>
 
     <FlyoutItem Title="Settings"
