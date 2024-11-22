@@ -26,10 +26,7 @@ namespace MauiNewsApp2.Services
 
         public NewsService()
 		{
-
 		}
-
-
 
         public async Task<NewsResult> GetNews(NewsScope scope)
         {
@@ -46,9 +43,32 @@ namespace MauiNewsApp2.Services
                     Articles = new() { new() { Title = $"HTTP Get failed: {ex.Message}", PublishedAt = DateTime.Now } }
                 };
             }
-            var orderedArticles = result.Articles.OrderByDescending(x => x.PublishedAt).ToList();
+            var orderedArticles = result?.Articles.OrderByDescending(x => x.PublishedAt).ToList();
             result.Articles = orderedArticles;
             return result;
+        }
+
+        public async Task<NewsResult> GetSearchResults(string query)
+        {
+            NewsResult result;
+            try
+            {
+                string url = $"{UriBase}/everything?q={query}&apiKey={AppSettings.NewsApiKey}";
+                result = await httpClient.GetFromJsonAsync<NewsResult>(url); 
+
+            }
+            catch (Exception ex)
+            {
+                result = new()
+                {
+                    Articles = new() { new() { Title = $"HTTP Get failed: {ex.Message}", PublishedAt = DateTime.Now } }
+                };
+            }
+            var orderedArticles = result?.Articles.OrderByDescending(x => x.PublishedAt).ToList();
+            result.Articles = orderedArticles;
+            return result;
+
+
         }
         private string GetUrl(NewsScope scope) => scope switch
         {

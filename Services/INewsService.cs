@@ -6,6 +6,7 @@ namespace MauiNewsApp2.Services
 	public interface INewsService
 	{
 		public Task<NewsResult> GetNews(NewsScope scope);
-	}
+        public Task<NewsResult> GetSearchResults(string query);
+    }
 }
 

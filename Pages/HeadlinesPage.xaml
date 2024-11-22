@@ -12,7 +12,7 @@
 
     <CollectionView ItemsSource="{Binding CurrentNews.Articles}">
         <CollectionView.EmptyView>
-            <Label Text="Loading" />
+            <Label Text="Loading..." />
         </CollectionView.EmptyView>
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="models:Article">
@@ -21,11 +21,8 @@
 
                         <TapGestureRecognizer Command="{Binding BindingContext.ItemSelectedCommand, Source={x:Reference headlinesview}}"
                                               CommandParameter="{Binding .}" />
-
                     </ContentView.GestureRecognizers>
-
                     <controls:ArticleItem />
-
                 </ContentView>
             </DataTemplate>
         </CollectionView.ItemTemplate>
