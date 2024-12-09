@@ -2,8 +2,10 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:MauiNewsApp2.Models"
+             xmlns:vm="clr-namespace:MauiNewsApp2.ViewModels"
              x:Class="MauiNewsApp2.Controls.ArticleItem"
-             x:DataType="models:Article">
+             x:DataType="models:Article"
+             >
     <Grid Margin="0" MinimumHeightRequest="100" MinimumWidthRequest="400">
         <Grid.RowDefinitions>
             <RowDefinition Height="12*" />
@@ -14,6 +16,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="75" />
+            <ColumnDefinition Width="4*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
@@ -42,8 +45,16 @@
                FontSize="Micro"
                VerticalOptions="End" />
 
-        
-
+        <ImageButton Grid.Row="1"
+                     Grid.Column="2"
+                     HorizontalOptions="End"
+                     WidthRequest="40"
+                     HeightRequest="40"
+                     Margin="0,0,10,0"
+                     Source="{Binding FavoriteIcon}"
+                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HeadlinesViewModel}}, Path=ToggleFavoriteCommand}"
+                     CommandParameter="{Binding .}" />
+        <!-- Source="{Binding IsFavorite}" -->
         <!--adds rounded corners around image-->
         <Border Grid.Row="1"
                 Grid.RowSpan="2"
@@ -62,7 +73,7 @@
         </Border>
         <!--adds a separator line under each article item-->
         <BoxView Grid.Row="4"
-                 Grid.ColumnSpan="2"
+                 Grid.ColumnSpan="3"
                  HeightRequest="1"
                  Margin="0,5,0,0"
                  BackgroundColor="LightGray" />
