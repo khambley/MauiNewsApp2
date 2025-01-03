@@ -12,6 +12,7 @@ public partial class SearchPage : ContentPage
 
     void searchBar_SearchButtonPressed(System.Object sender, System.EventArgs e)
     {
+		// fixes a bug - keyboard not dismissing when search button pressed
 		searchBar.HideSoftInputAsync(System.Threading.CancellationToken.None);
 		searchBar.Unfocus();
     }

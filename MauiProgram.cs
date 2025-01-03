@@ -32,6 +32,7 @@ public static class MauiProgram
 		//ViewModels
 		mauiAppBuilder.Services.AddTransient<ViewModels.HeadlinesViewModel>();
         mauiAppBuilder.Services.AddTransient<ViewModels.SearchViewModel>();
+        mauiAppBuilder.Services.AddTransient<ViewModels.FavoritesViewModel>();
 
         //Pages
         mauiAppBuilder.Services.AddTransient<Pages.AboutPage>();
@@ -40,6 +41,8 @@ public static class MauiProgram
         mauiAppBuilder.Services.AddTransient<Pages.LocalNewsPage>();
         mauiAppBuilder.Services.AddTransient<Pages.GlobalNewsPage>();
         mauiAppBuilder.Services.AddTransient<Pages.SearchPage>();
+        mauiAppBuilder.Services.AddTransient<Pages.FavoritesPage>();
+
         return mauiAppBuilder;
 	}
 }

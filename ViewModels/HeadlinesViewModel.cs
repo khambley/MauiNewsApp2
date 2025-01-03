@@ -33,12 +33,11 @@ namespace MauiNewsApp2.ViewModels
 
         public async Task Initialize(NewsScope scope)
         {
-            //CurrentNews = await newsService.GetNews(scope);
-
             List<Article> dbArticles = new();
 
             // Fetch articles from newsapi.org
             var apiNews = await newsService.GetNews(scope);
+
             foreach (var apiArticle in apiNews.Articles)
             {
                 // Map API article to Article model
@@ -130,7 +129,7 @@ namespace MauiNewsApp2.ViewModels
             }
 
             // Set the api articles retrieved from the updated db.
-            apiNews.Articles = dbArticles;
+            apiNews.Articles = await dbService.GetArticlesAsync();
 
             // Set the current news result properties with the db articles.
             CurrentNews = apiNews;

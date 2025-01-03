@@ -31,13 +31,21 @@
                           ContentTemplate="{DataTemplate views:GlobalNewsPage}" />
            
         </Tab>
+        <Tab Title="Favorites"
+             Route="favorites"
+             Icon="{StaticResource FavoritesIcon}">
+            <ShellContent Title="Favorites"
+                          Route="favorites"
+                          ContentTemplate="{DataTemplate views:FavoritesPage}" />
+
+        </Tab>
         <Tab Title="Search"
              Route="search"
              Icon="{StaticResource SearchIcon}">
             <ShellContent Title="Search"
                           Route="search"
                           ContentTemplate="{DataTemplate views:SearchPage}" />
-            </Tab>
+        </Tab>
     </FlyoutItem>
 
     <FlyoutItem Title="Settings"

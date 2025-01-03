@@ -8,11 +8,6 @@ namespace MauiNewsApp2.Services
 	{
         private SQLiteAsyncConnection _database;
 
-        public DBService()
-		{
-
-        }
-
         private async Task CreateConnectionAsync()
         {
             if (_database != null) return;
@@ -44,12 +39,16 @@ namespace MauiNewsApp2.Services
             {
                 await _database.InsertAsync(new Article()
                 {
-                    Url = "https://www.google.com",
-                    Title = "Welcome to JustNews",
-                    //Timestamp = DateTime.UtcNow
+                    Url = "https://www.superdesigngirl.com",
+                    Title = "Welcome to MyNews",
+                    UrlToImage = "https://www.superdesigngirl.com/assets/img/about.jpg",
+                    Timestamp = DateTime.UtcNow,
+                    PublishedAt = DateTime.UtcNow,
+                    
                 });
             }
         }
+
         #region Article
 
         //returns the number of rows deleted
@@ -69,14 +68,33 @@ namespace MauiNewsApp2.Services
         public async Task<List<Article>> GetArticlesAsync()
         {
             await CreateConnectionAsync();
-            return await _database.Table<Article>().ToListAsync();
+
+            // map source to article with source id
+            var sources = await GetSourcesAsync();
+            var articles = await _database.Table<Article>().ToListAsync();
+            List<Article> articlesWithSources = new();
+
+            if(sources != null)
+            {
+                foreach (var article in articles)
+                {
+                    article.Source = await GetSourceById(article.SourceId);
+                    articlesWithSources.Add(article);
+
+                }
+            }        
+            return articlesWithSources.OrderByDescending(a => a.PublishedAt).ToList();
         }
         
-        public async Task<int> SaveArticleAsync(Article article)
+        public async Task SaveArticleAsync(Article article)
         {
             await CreateConnectionAsync();
-            //returns the number of rows saved
-            return await _database.InsertOrReplaceAsync(article);
+            await _database.InsertAsync(article);
+        }
+
+        public async Task UpdateArticleAsync(Article article){
+            await CreateConnectionAsync();
+            await _database.UpdateAsync(article);
         }
 
         #endregion
@@ -89,11 +107,24 @@ namespace MauiNewsApp2.Services
             return await _database.Table<Source>().ToListAsync();
         }
 
-        public async Task<int> SaveSourceAsync(Source source)
+        public async Task<Source> GetSourceById(int id)
         {
             await CreateConnectionAsync();
-            //returns the number of rows saved
-            return await _database.InsertOrReplaceAsync(source);
+            return await _database.Table<Source>()
+                .Where(s => s.SourceId == id)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task SaveSourceAsync(Source source)
+        {
+            await CreateConnectionAsync();
+            await _database.InsertAsync(source);
+        }
+        
+        public async Task UpdateSourceAsync(Source source)
+        {
+            await CreateConnectionAsync();
+            await _database.UpdateAsync(source);
         }
 
         #endregion

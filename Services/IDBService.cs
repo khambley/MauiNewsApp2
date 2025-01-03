@@ -7,11 +7,14 @@ namespace MauiNewsApp2.Services
 	{
 		Task<List<Article>> GetArticlesAsync();
 		Task<Article> GetArticleByUrlAsync(string url);
-        Task<int> SaveArticleAsync(Article article);
+        Task SaveArticleAsync(Article article);
 		Task<int> DeleteArticleAsync(Article article);
 
         Task<List<Source>> GetSourcesAsync();
-        Task<int> SaveSourceAsync(Source source);
+        Task SaveSourceAsync(Source source);
+
+		Task UpdateArticleAsync(Article article);
+		Task UpdateSourceAsync(Source source);
     }
 }
 
