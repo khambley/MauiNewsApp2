@@ -27,7 +27,6 @@ namespace MauiNewsApp2.Services
         public NewsService()
 		{
 		}
-
         public async Task<NewsResult> GetNews(NewsScope scope)
         {
             NewsResult result;

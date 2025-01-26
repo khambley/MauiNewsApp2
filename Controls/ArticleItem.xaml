@@ -2,6 +2,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:MauiNewsApp2.Models"
+             xmlns:vm="clr-namespace:MauiNewsApp2.ViewModels"
              x:Class="MauiNewsApp2.Controls.ArticleItem"
              x:DataType="models:Article">
     <Grid Margin="0" MinimumHeightRequest="100" MinimumWidthRequest="400">
@@ -41,8 +42,16 @@
                Padding="10,0,0,5"
                FontSize="Micro"
                VerticalOptions="End" />
-
         
+        <Button Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.Column="1"
+                Text="{Binding IsFavorite, Converter={StaticResource FavoriteIconConverter}}"
+                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HeadlinesViewModel}}, Path=ToggleFavoriteCommand}"
+                CommandParameter="{Binding .}"
+                VerticalOptions="Center"
+                HorizontalOptions="End" />
+
 
         <!--adds rounded corners around image-->
         <Border Grid.Row="1"

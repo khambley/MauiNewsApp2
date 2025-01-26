@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using System.Web;
 using MauiNewsApp2.Services;
 using MauiNewsApp2.Models;
+using Newtonsoft.Json;
 
 namespace MauiNewsApp2.ViewModels
 {
@@ -13,11 +14,6 @@ namespace MauiNewsApp2.ViewModels
 
         [ObservableProperty]
         private NewsResult currentNews;
-
-        [ObservableProperty]
-        private bool isFavorite;
-
-        public string FavoriteIcon => IsFavorite ? "heart_filled.svg" : "heart_outline.svg";
 
         public HeadlinesViewModel(INewsService newsService, INavigate navigation) : base (navigation)
         {
@@ -45,6 +41,24 @@ namespace MauiNewsApp2.ViewModels
             var url = HttpUtility.UrlEncode(selectedArticle?.Url);
             var title = selectedArticle?.Title;
             await Navigation.NavigateTo($"articleview?url={url}&title={title}");
+        }
+
+        [RelayCommand]
+        private void ToggleFavorite(Article article)
+        {
+            if (article != null)
+            {
+                article.Id = IdGenerator.GetNextId();
+                article.IsFavorite = !article.IsFavorite;
+                //SaveFavorites();
+            }
+        }
+
+        private void SaveFavorites()
+        {
+            var favoriteIds = CurrentNews.Articles.Where(i => i.IsFavorite).Select(i => i.Id).ToList();
+            var serializedIds = JsonConvert.SerializeObject(favoriteIds);
+            Preferences.Set("FavoriteItemIds", serializedIds);
         }
     }
 }

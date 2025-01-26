@@ -1,10 +1,13 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Text.Json.Serialization;
 
 namespace MauiNewsApp2.Models
 {
-	public class Article
+	public partial class Article : ObservableObject
 	{
+        public int Id { get; set; }
+
         [JsonPropertyName("source")]
         public Source Source { get; set; }
 
@@ -29,7 +32,8 @@ namespace MauiNewsApp2.Models
         [JsonPropertyName("content")]
         public string Content { get; set; }
 
-        public bool IsFavorite { get; set; }
+        [ObservableProperty]
+        private bool isFavorite;
     }
 }
 

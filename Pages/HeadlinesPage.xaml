@@ -18,7 +18,6 @@
             <DataTemplate x:DataType="models:Article">
                 <ContentView>
                     <ContentView.GestureRecognizers>
-
                         <TapGestureRecognizer Command="{Binding BindingContext.ItemSelectedCommand, Source={x:Reference headlinesview}}"
                                               CommandParameter="{Binding .}" />
                     </ContentView.GestureRecognizers>
